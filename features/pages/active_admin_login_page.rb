@@ -9,6 +9,13 @@ class ActiveAdminLoginPage
   div(:title_bar, id: "title_bar")
   table(:articles_table, id: "index_table_articles")
 
+  def login_admin
+    @browser.navigate.to 'http://127.0.0.1:3000/admin'
+    self.email_box = 'admin@example.com'
+    self.password_box = 'password'
+    login
+  end
+
   def visit_active_admin_site
     @browser.navigate.to 'http://127.0.0.1:3000/admin'
   end
