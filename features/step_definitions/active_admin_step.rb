@@ -17,5 +17,7 @@ end
 
 Then(/^user should see the articles table$/) do
   expect(@active_admin_page.articles_table_present?).to eql(true)
-  expect(@active_admin_page.articles_table.match?('cooking')).to eql(true)
+  table = @active_admin_page.articles_table_element
+  expect(table.rows).to eql(3)
+  expect(table.first_row.columns).to eql(7)
 end
