@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class ActiveAdminLoginPage
   include PageObject
 
@@ -5,6 +7,7 @@ class ActiveAdminLoginPage
   text_field(:password_box, id: "admin_user_password")
   button(:login, value: "Login")
   div(:title_bar, id: "title_bar")
+  table(:articles_table, id: "index_table_articles")
 
   def visit_active_admin_site
     @browser.navigate.to 'http://127.0.0.1:3000/admin'
@@ -28,6 +31,10 @@ class ActiveAdminLoginPage
 
   def title_bar_present?
     self.title_bar.present?
+  end
+
+  def articles_table_present?
+    self.articles_table.present?
   end
 
   def close

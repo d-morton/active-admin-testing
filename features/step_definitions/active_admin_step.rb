@@ -16,6 +16,6 @@ Then(/^user should see the articles title$/) do
 end
 
 Then(/^user should see the articles table$/) do
-  expect(@active_admin_page.title_bar_present?).to eql(true)
-  expect(@active_admin_page.title_bar).to include("Articles")
+  expect(@active_admin_page.articles_table_present?).to eql(true)
+  expect(@active_admin_page.articles_table.match?('cooking')).to eql(true)
 end
